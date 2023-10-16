@@ -32,7 +32,8 @@ body{
   background: black;
 }
 .rook{
-	color:red;
+}
+.pawn{
 }
 
 
@@ -41,7 +42,7 @@ body{
   display: inline-block; 
 }
 
-.piece {
+.rook, .knight, .bishop, .queen, .king, .pawn {
   transition: transform 0.2s ease; 
 }
 
