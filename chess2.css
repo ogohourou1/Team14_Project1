@@ -1,0 +1,151 @@
+html {
+  background: sandybrown; 
+}
+
+#board {
+  margin-top: 3em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 2px solid black;
+  position: relative;
+  width: 50vw;
+  aspect-ratio: 1 / 1;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+/* KNIGHT piece declaration, actually enables the keyframe animation */
+#knight {
+  position: absolute;
+  animation-name: knight_moving;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transition-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+div.piece {
+  display: grid;
+  place-content: center;
+  width: calc(50vw / 8);
+  aspect-ratio: 1 / 1;
+}
+
+img.piece {
+  width: 80%;
+  margin: auto;
+  z-index: 6;
+}
+
+div.square {
+  position: absolute;
+  width: calc(50vw / 8);
+  aspect-ratio: 1 / 1;
+  outline: 1px solid darkgrey y;
+}
+
+div.dark {
+  background-color: black;
+}
+
+div.light {
+  background-color: beige; 
+}
+
+/*each rank is split and calculated using the following equation: 
+ * (max rows) - (Rank) * (square size) = rank top location
+ *
+ * Square size is calculated by dividing the size of the board by the number of
+ * squares per row. calculations are kept explicit for readability using calc()
+ */
+div.r1 {
+  top: calc(7 * calc(50vw / 8));
+}
+
+div.r2 {
+  top: calc(6 * calc(50vw / 8));
+}
+
+div.r3 {
+  top: calc(5 * calc(50vw / 8));
+}
+
+div.r4 {
+  top: calc(4 * calc(50vw / 8));
+}
+
+div.r5 {
+  top: calc(3 * calc(50vw / 8));
+}
+
+div.r6 {
+  top: calc(2 * calc(50vw / 8));
+}
+
+div.r7 {
+  top: calc(1 * calc(50vw / 8));
+}
+
+div.r8 {
+  top: calc(0 * calc(50vw / 8));
+}
+
+/* files are done the same as the rank of the board above but inverting i.e.
+ * not subtracting the max file, start at 0 */
+
+div.fa {
+  left: calc(0 * calc(50vw / 8));
+}
+
+div.fb {
+  left: calc(1 * calc(50vw / 8));
+}
+
+div.fc {
+  left: calc(2 * calc(50vw / 8));
+}
+
+div.fd {
+  left: calc(3 * calc(50vw / 8));
+}
+
+div.fe {
+  left: calc(4 * calc(50vw / 8));
+}
+
+div.ff {
+  left: calc(5 * calc(50vw / 8));
+}
+
+div.fg {
+  left: calc(6 * calc(50vw / 8));
+}
+
+div.fh {
+  left: calc(7 * calc(50vw / 8));
+}
+
+/* keyframe for just the knight, uses similar calcuations to the rank and file
+ * above to set the piece postion at each percentile of the keyframe
+ * progression. Values also kept explicit using calc() as to not be confusing
+ * with random numbers */
+@keyframes knight_moving {
+  0% {
+    left: calc(0 * calc(50vw / 8));
+    top: calc(7 * calc(50vw / 8));
+  }
+  50% {
+    left: calc(1 * calc(50vw / 8));
+    top: calc(5 * calc(50vw / 8));
+  }
+  100% {
+    left: calc(0 * calc(50vw / 8));
+    top: calc(7 * calc(50vw / 8));
+  }
+
+}
+
