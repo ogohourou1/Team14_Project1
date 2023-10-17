@@ -28,6 +28,16 @@ h1 {
   animation-iteration-count: infinite;
 }
 
+/* KNIGHT piece declaration, actually enables the keyframe animation */
+#rook {
+  position: absolute;
+  animation-name: rook_moving;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transition-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 div.piece {
   display: grid;
   place-content: center;
@@ -144,6 +154,23 @@ div.fh {
   }
   100% {
     left: calc(0 * calc(50vw / 8));
+    top: calc(7 * calc(50vw / 8));
+  }
+
+}
+
+/*ROOK keyframe*/
+@keyframes rook_moving {
+  0% {
+    left: calc(7 * calc(50vw / 8));
+    top: calc(7 * calc(50vw / 8));
+  }
+  50% {
+    left: calc(7 * calc(50vw / 8));
+    top: calc(0 * calc(50vw / 8));
+  }
+  100% {
+    left: calc(7 * calc(50vw / 8));
     top: calc(7 * calc(50vw / 8));
   }
 
